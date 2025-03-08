@@ -14,4 +14,4 @@ Il **DPP Monitor** (“Digital Product Passport Monitor”) è un microservizio 
 ### 1️⃣ Clonare il Repository
 ```bash
 git clone https://github.com/Verlanti2002/dpp-monitor.git
-cd dpp-monitor
+cd dpp_monitor
