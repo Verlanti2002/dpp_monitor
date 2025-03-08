@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dpp-monitor
+  labels:
+    app: dpp-monitor
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: dpp-monitor
+  template:
+    metadata:
+      name: dpp-monitor
+      labels:
+        app: dpp-monitor
+    spec:
+      containers:
+        - name: dpp-monitor
+          image: verlanti2002/dpp-monitor:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
+          env:
+            - name: ALLOWED_HOSTS
+              value: "192.168.49.2,localhost,127.0.0.1"
