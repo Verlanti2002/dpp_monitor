@@ -1,15 +1,27 @@
 import sys
 import json
 import uuid
-
 from rest_framework.exceptions import ValidationError
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
+
+"""
+Oracle Function
+Funzione che permette di stabilire la validità di un determinato evento
+param: data Informazioni relative ad un evento
+return: True se l'evento è riconosciuto come valido, false altrimenti   
+"""
 def oracle_function(data):
     return True
 
 # Create your views here.
+"""
+Check Event
+Funzione che estrae i dati dalla HTTP Request, applica l'oracle function all'evento e restituisce l'esito
+param: request HTTP Request
+return: HTTP Response
+"""
 @api_view(['POST'])
 def check_event(request):
     try:
