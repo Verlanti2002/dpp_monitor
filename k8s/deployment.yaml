@@ -1,26 +1,26 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: Deployment # Tipo di risorsa creata
 metadata:
-  name: dpp-monitor
+  name: dpp-monitor # Nome del Deployment
   labels:
-    app: dpp-monitor
+    app: dpp-monitor # Etichetta per identificare il Deployment
 spec:
-  replicas: 1
+  replicas: 3 # Numero di repliche dei contenitori (copie identiche del servizio Django)
   selector:
     matchLabels:
-      app: dpp-monitor
+      app: dpp-monitor # Seleziona i pod che appartengono a questo Deployment
   template:
     metadata:
-      name: dpp-monitor
+      name: dpp-monitor # Nome dei Pods
       labels:
-        app: dpp-monitor
+        app: dpp-monitor # Etichetta per identificare i Pods
     spec:
       containers:
-        - name: dpp-monitor
-          image: verlanti2002/dpp-monitor:latest
+        - name: dpp-monitor # Nome del contenitore
+          image: verlanti2002/dpp-monitor:latest # Immagine Docker da utilizzare
           imagePullPolicy: Always
           ports:
-            - containerPort: 8000
+            - containerPort: 8000 # Porta esposta dal contenitore
           env:
-            - name: ALLOWED_HOSTS
+            - name: ALLOWED_HOSTS # Variabile d'ambiente per configurare Django
               value: "192.168.49.2,localhost,127.0.0.1"

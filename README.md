@@ -6,12 +6,12 @@ Il **DPP Monitor** (“Digital Product Passport Monitor”) è un microservizio 
 ## 📌 Tecnologie Utilizzate
 - **Python 3.10+** - Linguaggio di programmazione
 - **Django REST Framework** - API REST per la gestione degli eventi
-- **Docker Engine** - Containerizzazione del microservizio
-- **Kubernetes** - Orchestrazione e scalabilità dei container (minikube e kubectl)
+- **Docker** - Containerizzazione del microservizio
+- **Kubernetes** - Orchestrazione e scalabilità dei container
 
 
 ## 📌 Setup dell'Ambiente di Sviluppo
 ### 1️⃣ Clonare il Repository
 ```bash
-git clone https://github.com/Verlanti2002/dpp-monitor.git
+git clone https://github.com/Verlanti2002/dpp_monitor.git
 cd dpp_monitor

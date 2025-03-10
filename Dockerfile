@@ -4,13 +4,13 @@ FROM python:3.12-slim
 # Imposta la directory di lavoro nel container
 WORKDIR /usr/local/app
 
-# Installa le dipendenze di sistema
+# Installa le dipendenze di sistema, curl ed elimina i file temporanei generati durante l'installazione
 RUN apt update && apt install -y curl && rm -rf /var/lib/apt/lists/*
 
-# Copia solo il file delle dipendenze (per ottimizzare la cache)
+# Copia il file delle dipendenze
 COPY requirements.txt .
 
-# Installa le dipendenze senza cache
+# Installa le dipendenze, impedendo a pip di salvare nella cache i pacchetti
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copia il resto del progetto
@@ -20,7 +20,7 @@ COPY . .
 RUN useradd -m appuser
 USER appuser
 
-# Esponi la porta di Django (8000)
+# Espone la porta 8000 di Django (il container ascolterà su tale porta)
 EXPOSE 8000
 
 # Comando per avviare il server Django con Gunicorn

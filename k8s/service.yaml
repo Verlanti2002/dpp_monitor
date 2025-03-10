@@ -1,13 +1,13 @@
 apiVersion: v1
-kind: Service
+kind: Service # Tipo di risorsa creata
 metadata:
-  name: dpp-monitor-service
+  name: dpp-monitor-service # Nome del Service
 spec:
   selector:
-    app: dpp-monitor
+    app: dpp-monitor # Permette di selezionare i pod etichettati con app: dpp-monitor
   ports:
-    - protocol: TCP
-      port: 8000
-      targetPort: 8000
-      nodePort: 30080
-  type: NodePort
+    - protocol: TCP # Protocollo TCP per la comunicazione
+      port: 8000 # Porta su cui il Service è accessibile internamente al cluster
+      targetPort: 8000 # Porta del contenitore su cui il traffico viene inviato
+      nodePort: 30080 # Porta esposta all'esterno del cluster
+  type: NodePort # Tipo di Service che permette l'accesso da fuori il cluster
