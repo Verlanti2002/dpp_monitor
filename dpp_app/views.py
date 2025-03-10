@@ -25,7 +25,7 @@ return: HTTP Response
 @api_view(['POST'])
 def check_event(request):
     try:
-        # Estrae i dati JSON dalla richiesta
+        # Estrazione dei dati JSON dalla richiesta
         data = request.data
 
         # Generazione di un ID univoco per identificare l'evento
@@ -39,10 +39,10 @@ def check_event(request):
             "status": "valid" if status else "invalid"
         }
 
-        # Formattazione JSON in modo leggibile
+        # Permette di convertire un oggetto python (dizionario) in una stringa JSON
         formatted_json = json.dumps(event_info, indent=4)
 
-        # Stampa in console
+        # Stampa in console (salvataggio nei logs del pod)
         print(formatted_json, flush=True, file=sys.stdout)
 
         if status:

@@ -5,13 +5,13 @@ metadata:
   labels:
     app: dpp-monitor # Etichetta per identificare il Deployment
 spec:
-  replicas: 3 # Numero di repliche dei contenitori (copie identiche del servizio Django)
+  replicas: 3 # Numero di repliche dei pod (copie identiche di dpp-monitor)
   selector:
     matchLabels:
       app: dpp-monitor # Seleziona i pod che appartengono a questo Deployment
   template:
     metadata:
-      name: dpp-monitor # Nome dei Pods
+      name: dpp-monitor # Identificativo dei pod
       labels:
         app: dpp-monitor # Etichetta per identificare i Pods
     spec:
